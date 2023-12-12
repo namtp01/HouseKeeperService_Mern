@@ -1,5 +1,5 @@
-import User from '../models/User';
-import createError from '../utils/createError';
+import User from '../models/user.model.js';
+import createError from '../utils/createError.js';
 
 export const deleteUser = async (req, res, next) => {
     const user = await User.findById(req.params.id)
@@ -10,4 +10,9 @@ export const deleteUser = async (req, res, next) => {
 
     await User.findByIdAndDelete(req.params.id)
     res.status(200).send("User has been deleted!")
+}
+
+export const getUser = async (req, res, next) => {
+    const user = await User.findById(req.params.id)
+    res.status(200).send(user)
 }
