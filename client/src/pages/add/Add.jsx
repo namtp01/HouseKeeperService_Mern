@@ -1,25 +1,28 @@
 import React, { useReducer, useState } from "react";
 import "./Add.scss";
 import { gigReducer, INITIAL_STATE } from "../../reducers/gigReducer";
-import upload from "../../utils/upload";
+import upload from "../../utils/upload.js";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
-const Add = () => {
+const Add = () =>
+{
   const [singleFile, setSingleFile] = useState(undefined);
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
 
   const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);
 
-  const handleChange = (e) => {
+  const handleChange = (e) =>
+  {
     dispatch({
       type: "CHANGE_INPUT",
       payload: { name: e.target.name, value: e.target.value },
     });
   };
-  const handleFeature = (e) => {
+  const handleFeature = (e) =>
+  {
     e.preventDefault();
     dispatch({
       type: "ADD_FEATURE",
@@ -28,13 +31,15 @@ const Add = () => {
     e.target[0].value = "";
   };
 
-  const handleUpload = async () => {
+  const handleUpload = async () =>
+  {
     setUploading(true);
     try {
       const cover = await upload(singleFile);
 
       const images = await Promise.all(
-        [...files].map(async (file) => {
+        [...files].map(async (file) =>
+        {
           const url = await upload(file);
           return url;
         })
@@ -46,24 +51,34 @@ const Add = () => {
     }
   };
 
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: (gig) => {
-      return newRequest.post("/gigs", gig);
+    mutationFn: (gig) =>
+    {
+      return newRequest.post("gigs", gig);
     },
-    onSuccess: () => {
+    onSuccess: () =>
+    {
       queryClient.invalidateQueries(["myGigs"]);
     },
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) =>
+  {
     e.preventDefault();
     mutation.mutate(state);
     // navigate("/mygigs")
   };
+
+  const options = [
+    { value: 'page-design', label: 'Page Design' },
+    { value: 'logo-design', label: 'Logo Design' },
+    { value: 'marketing-materials', label: 'Marketing Materials' },
+    // Add more options here...
+  ];
 
   return (
     <div className="add">
@@ -80,8 +95,8 @@ const Add = () => {
             />
             <label htmlFor="">Category</label>
             <select name="cat" id="cat" onChange={handleChange}>
-              <option value="design">Design</option>
-              <option value="web">Web Development</option>
+              <option value="design">Cooking</option>
+              <option value="web">Babysister</option>
               <option value="animation">Animation</option>
               <option value="music">Music</option>
             </select>
@@ -140,9 +155,24 @@ const Add = () => {
               onChange={handleChange}
             />
             <label htmlFor="">Add Features</label>
-            <form action="" className="add" onSubmit={handleFeature}>
+            {/* <form action="" className="add" onSubmit={handleFeature}>
               <input type="text" placeholder="e.g. page design" />
               <button type="submit">add</button>
+            </form> */}
+
+            <form action="" className="add" onSubmit={handleFeature}>
+              <select>
+                {options.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              <button type="submit">Add</button>
+            </form>
+
+            <form action="" className="add" onSubmit={handleFeature}>
+
             </form>
             <div className="addedFeatures">
               {state?.features?.map((f) => (

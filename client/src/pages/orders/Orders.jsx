@@ -11,7 +11,7 @@ const Orders = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
     queryFn: () =>
-      newRequest.get(`/orders`).then((res) => {
+      newRequest.get(`/orders`, {withCredentials: true}).then((res) => {
         return res.data;
       }),
   });
@@ -51,7 +51,7 @@ const Orders = () => {
               <th>Price</th>
               <th>Contact</th>
             </tr>
-            {data.map((order) => (
+            {data?.map((order) => (
               <tr key={order._id}>
                 <td>
                   <img className="image" src={order.img} alt="" />
