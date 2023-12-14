@@ -10,6 +10,7 @@ function Gigs() {
   const [open, setOpen] = useState(false);
   const minRef = useRef();
   const maxRef = useRef();
+  const [country, setCountry] = useState("Ho Chi Minh");
 
   const { search } = useLocation();
 
@@ -18,7 +19,7 @@ function Gigs() {
     queryFn: () =>
       newRequest
         .get(
-          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}`
+          `/gigs${search}&min=${minRef.current.value}&max=${maxRef.current.value}&sort=${sort}&country=${country}`
         )
         .then((res) => {
           return res.data;
@@ -34,25 +35,35 @@ function Gigs() {
 
   useEffect(() => {
     refetch();
-  }, [sort]);
+  }, [sort, country]);
 
   const apply = () => {
     refetch();
   };
 
+  const handleCountryChange = (event) => {
+    setCountry(event.target.value);
+  };
+
   return (
     <div className="gigs">
       <div className="container">
-        <span className="breadcrumbs">Liverr {">"} Graphics {"&"} Design {">"}</span>
-        <h1>AI Artists</h1>
+        {/* <span className="breadcrumbs">Liverr {">"} Graphics {"&"} Design {">"}</span> */}
+        <h1>Candidate</h1>
         <p>
-          Explore the boundaries of art and technology with Liverr{"'"}s AI artists
+          Choose your best match
         </p>
         <div className="menu">
           <div className="left">
-            <span>Budget</span>
-            <input ref={minRef} type="number" placeholder="min" />
-            <input ref={maxRef} type="number" placeholder="max" />
+            <span>Budget:</span>
+            <span>From <input ref={minRef} type="number" placeholder="min" /></span>
+            <span> To <input ref={maxRef} type="number" placeholder="max" /></span>
+            <span> Location: </span>
+            <select id="city-select" value={country} onChange={handleCountryChange}>
+              <option value="Ho Chi Minh">Ho Chi Minh</option>
+              <option value="Ha Noi">Ha Noi</option>
+              <option value="Da Nang">Da Nang</option>
+            </select>
             <button onClick={apply}>Apply</button>
           </div>
           <div className="right">

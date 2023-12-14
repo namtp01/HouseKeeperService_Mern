@@ -20,7 +20,7 @@ function Home() {
       <div className="features">
         <div className="container">
           <div className="item">
-            <h1>A whole world of freelance talent at your fingertips</h1>
+            <h1>A whole world of freelance at your fingertips</h1>
             <div className="title">
               <img src="./img/check.png" alt="" />
               The best for every budget
@@ -55,23 +55,24 @@ function Home() {
             </p>
           </div>
           <div className="item">
-            <video src="./img/video.mp4" controls />
+            {/* <video src="./img/video.mp4" controls /> */}
+            <img src="./img/giorgio-trovato-5TXz228u4eo-unsplash.jpg" />
           </div>
         </div>
       </div>
       <div className="explore">
         <div className="container">
-          <h1>Explore the marketplace</h1>
+          <h1>Why choose us?</h1>
           <div className="items">
-            <div className="item">
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/graphics-design.d32a2f8.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Graphics & Design</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/online-marketing.74e221b.svg"
                 alt=""
@@ -79,82 +80,114 @@ function Home() {
               <div className="line"></div>
 
               <span>Digital Marketing</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/writing-translation.32ebe2e.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Writing & Translation</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/video-animation.f0d9d71.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Video & Animation</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/music-audio.320af20.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Music & Audio</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/programming.9362366.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Programming & Tech</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/business.bbdf319.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Business</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/lifestyle.745b575.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Lifestyle</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/data.718910f.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Data</span>
-            </div>
-            <div className="item">
+            </div> */}
+            {/* <div className="item">
               <img
                 src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/photography.01cf943.svg"
                 alt=""
               />
               <div className="line"></div>
               <span>Photography</span>
+            </div> */}
+            <div className="item">
+              <img
+                src="./img/badge-time-clock.png"
+                alt=""
+              />
+              <div className="line"></div>
+              <span>Fast Service</span>
             </div>
+            <div className="item">
+              <img
+                src="./img/badge-pay.png"
+                alt=""
+              />
+              <div className="line"></div>
+              <span>Fair Price</span>
+            </div>
+            <div className="item">
+              <img
+                src="./img/badge-service.png"
+                alt=""
+              />
+              <div className="line"></div>
+              <span>Multiple Services</span>
+            </div>
+            <div className="item">
+              <img
+                src="./img/badge-insurrance.png"
+                alt=""
+              />
+              <div className="line"></div>
+              <span>Quality Insurrance</span>
+            </div>  
           </div>
         </div>
       </div>
-      <div className="features dark">
+      {/* <div className="features dark">
         <div className="container">
           <div className="item">
             <h1>
-              fiverr <i>business</i>
+              taskerr <i>business</i>
             </h1>
             <h1>
-              A business solution designed for <i>teams</i>
+              A business solution designed for <i>your home</i>
             </h1>
             <p>
               Upgrade to a curated experience packed with tools and benefits,
@@ -183,12 +216,12 @@ function Home() {
             />
           </div>
         </div>
-      </div>
-      <Slide slidesToShow={4} arrowsScroll={4}>
+      </div> */}
+      {/* <Slide slidesToShow={4} arrowsScroll={4}>
         {projects.map((card) => (
           <ProjectCard key={card.id} card={card} />
         ))}
-      </Slide>
+      </Slide> */}
     </div>
   );
 }

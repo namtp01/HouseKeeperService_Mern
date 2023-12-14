@@ -41,9 +41,9 @@ function Gig() {
       ) : (
         <div className="container">
           <div className="left">
-            <span className="breadcrumbs">
+            {/* <span className="breadcrumbs">
               Fiverr {">"} Graphics {"&"} Design {">"}
-            </span>
+            </span> */}
             <h1>{data.title}</h1>
             {isLoadingUser ? (
               "loading"
@@ -110,9 +110,9 @@ function Gig() {
                     </div>
                     <div className="item">
                       <span className="title">Member since</span>
-                      <span className="desc">Aug 2022</span>
+                      <span className="desc">{new Date().toLocaleDateString()}</span>
                     </div>
-                    <div className="item">
+                    {/* <div className="item">
                       <span className="title">Avg. response time</span>
                       <span className="desc">4 hours</span>
                     </div>
@@ -123,7 +123,7 @@ function Gig() {
                     <div className="item">
                       <span className="title">Languages</span>
                       <span className="desc">English</span>
-                    </div>
+                    </div> */}
                   </div>
                   <hr />
                   <p>{dataUser.desc}</p>
@@ -141,7 +141,7 @@ function Gig() {
             <div className="details">
               <div className="item">
                 <img src="/img/clock.png" alt="" />
-                <span>{data.deliveryDate} Days Delivery</span>
+                <span>{data.deliveryTime} Days Delivery</span>
               </div>
               <div className="item">
                 <img src="/img/recycle.png" alt="" />

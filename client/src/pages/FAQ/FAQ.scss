@@ -1,0 +1,31 @@
+.faq{
+    width: 80%; 
+    margin: 0px 200px 0px 200px;
+    padding: 20px;
+}
+.faq-item {
+    background: #f9f9f9;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .faq-item.open {
+    background: #e9e9e9;
+  }
+  
+  .faq-question {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .faq-answer {
+    display: none;
+  }
+  
+  .faq-item.open .faq-answer {
+    display: block;
+  }
+  

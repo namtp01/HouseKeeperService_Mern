@@ -10,9 +10,9 @@ export const intent = async (req, res, next) => {
     //const gig = await Gig.findById(req.body.gigId);
     const gig = await Gig.findOne({ _id: req.params.id })
     if (!gig) return res.status(404).send("Gig not found")
-    
+    const applicationFee = ((gig.price * 20)/100) * 100
     const payementIntent = await stripe.paymentIntents.create({
-        amount: gig.price * 100,
+        amount: gig.price * 100 + applicationFee,
         currency: 'usd',
         automatic_payment_methods: {
             enabled: true,

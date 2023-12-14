@@ -39,15 +39,14 @@ function Navbar() {
       <div className="container">
         <div className="logo">
           <Link className="link" to="/">
-            <span className="text">fiverr</span>
+            <span className="text">taskerr</span>
           </Link>
           <span className="dot">.</span>
         </div>
         <div className="links">
-          <span>Fiverr Business</span>
-          <span>Explore</span>
-          <span>English</span>
-          {!currentUser?.isSeller && <span>Become a Seller</span>}
+          <Link className="link" to="/faq"><span>Taskerr FAQ</span></Link>
+          <Link className="link" to="/policy"><span>Policy</span></Link>
+          {/* {!currentUser?.isSeller && <span>Become a Seller</span>} */}
           {currentUser ? (
             <div className="user" onClick={() => setOpen(!open)}>
               <img src={currentUser.img || "/img/noavatar.jpg"} alt="" />
@@ -90,32 +89,32 @@ function Navbar() {
         <>
           <hr />
           <div className="menu">
-            <Link className="link menuLink" to="/">
-              Graphics & Design
+            <Link className="link menuLink" to="/gigs?cat=heavy-lifting">
+              Heavy Lifting
             </Link>
-            <Link className="link menuLink" to="/">
-              Video & Animation
+            <Link className="link menuLink" to="/gigs?cat=home-repairs">
+              Home Repairs
             </Link>
-            <Link className="link menuLink" to="/">
-              Writing & Translation
+            <Link className="link menuLink" to="/gigs?cat=home-cleaning">
+              Home Cleaning
             </Link>
-            <Link className="link menuLink" to="/">
-              AI Services
+            <Link className="link menuLink" to="/gigs?cat=electrical-help">
+              Electrical Help
             </Link>
-            <Link className="link menuLink" to="/">
-              Digital Marketing
+            <Link className="link menuLink" to="/gigs?cat=baby-proofing">
+              Baby Proofing
             </Link>
-            <Link className="link menuLink" to="/">
-              Music & Audio
+            <Link className="link menuLink" to="/gigs?cat=home-cooking">
+              Home Cooking
             </Link>
-            <Link className="link menuLink" to="/">
-              Programming & Tech
+            <Link className="link menuLink" to="/gigs?cat=cleaning-air-conditioner">
+              Cleaning Air Conditioner
             </Link>
-            <Link className="link menuLink" to="/">
-              Business
+            <Link className="link menuLink" to="/gigs?cat=laundry">
+              Laundry
             </Link>
-            <Link className="link menuLink" to="/">
-              Lifestyle
+            <Link className="link menuLink" to="/gigs?cat=dog-walking">
+              Dog Walking
             </Link>
           </div>
           <hr />

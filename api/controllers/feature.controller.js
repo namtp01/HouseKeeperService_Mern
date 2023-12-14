@@ -4,20 +4,14 @@ import { isAdmin } from "../middleware/jwt.js"
 
 export const createFeature = async (req, res, next) =>
 {
-    const { name } = req.body;
+    console.log(req.body)
+    if (!req.isAdmin) return next(createError(403, "Only admins can create features!"));
 
-    // Check for missing parameter
-    if (!name) {
-        return next(createError(400, "Missing required parameter: name"));
-    }
-
-    // Check if user is admin
-    await isAdmin(req, res, next);
+    const newFeature = new Feature({
+        ...req.body
+    })
 
     try {
-        // Create a new feature object
-        const newFeature = new Feature({ name });
-
         // Save the new feature to the database
         const savedFeature = await newFeature.save();
 

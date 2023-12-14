@@ -13,6 +13,8 @@ import Orders from "./pages/orders/Orders";
 import Messages from "./pages/messages/Messages";
 import Message from "./pages/message/Message";
 import MyGigs from "./pages/myGigs/MyGigs";
+import FAQ from "./pages/FAQ/FAQ";
+import Policy from "./pages/Policy/Policy"
 import {
   QueryClient,
   QueryClientProvider,
@@ -87,6 +89,14 @@ function App() {
           path: "/success",
           element: <Success />,
         },
+        {
+          path: "/faq",
+          element: <FAQ />,
+        },
+        {
+          path: "/policy",
+          element: <Policy />
+        }
       ],
     },
   ]);
