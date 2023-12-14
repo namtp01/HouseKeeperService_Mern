@@ -49,6 +49,16 @@ export const getOrders = async (req, res, next) => {
     }
 }
 
+export const getAllOrders = async (req, res, next) => {
+    try {
+        const orders = await Order.find({}).sort({ _id: -1 })
+
+        res.status(200).send(orders)
+    } catch (err) {
+        next(err)
+    }
+}
+
 export const confirm = async (req, res, next) => {
     try {
         const orders = await Order.findOneAndUpdate(

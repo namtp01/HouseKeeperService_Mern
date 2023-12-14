@@ -13,14 +13,14 @@ const Messages = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["conversations"],
     queryFn: () =>
-      newRequest.get(`/conversations`).then((res) => {
+      newRequest.get(`/conversations`, {withCredentical: true}).then((res) => {
         return res.data;
       }),
   });
 
   const mutation = useMutation({
     mutationFn: (id) => {
-      return newRequest.put(`/conversations/${id}`);
+      return newRequest.put(`/conversations/${id}`, {withCredentical: true});
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["conversations"]);

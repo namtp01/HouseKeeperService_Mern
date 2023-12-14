@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const categorySchema = new Schema ({
+const featureSchema = new Schema ({
     name: {
         type: String,
         required: true
@@ -10,4 +10,4 @@ const categorySchema = new Schema ({
     timestamps: true,
 });
 
-export default mongoose.model("Category", categorySchema);
+export default mongoose.model("Feature", featureSchema);

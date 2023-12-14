@@ -19,7 +19,7 @@ const ConversationSchema = new Schema ({
         type: Boolean,
         required: true,
     },
-    readbyBuyer: {
+    readByBuyer: {
         type: Boolean,
         required: true,
     },

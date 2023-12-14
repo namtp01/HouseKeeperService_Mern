@@ -32,7 +32,7 @@ function Navbar() {
     } catch (err) {
       console.log(err); 
     }
-  };
+  }; 
 
   return (
     <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Orders.scss";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
@@ -22,14 +22,14 @@ const Orders = () => {
     const id = sellerId + buyerId;
 
     try {
-      const res = await newRequest.get(`/conversations/single/${id}`);
-      navigate(`/message/${res.data.id}`);
+      const res = await newRequest.get(`/conversations/single/${id}`, {withCredentials: true});
+      navigate(`/message/${res.data.id}`, {withCredentials: true});
     } catch (err) {
       if (err.response.status === 404) {
         const res = await newRequest.post(`/conversations/`, {
           to: currentUser.seller ? buyerId : sellerId,
-        });
-        navigate(`/message/${res.data.id}`);
+        }, {withCredentials: true});
+        navigate(`/message/${res.data.id}`, {withCredentials: true});
       }
     }
   };

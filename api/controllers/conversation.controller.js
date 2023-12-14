@@ -10,12 +10,27 @@ export const createConversation = async (req, res, next) => {
         readByBuyer: !req.isSeller,
     })
 
+    // try {
+    //     const savedConversation = await newConversation.save();
+    //     res.status(201).send(savedConversation);
+    // } catch (err) {
+    //     next(err)
+    // }
+
     try {
-        const savedConversation = await newConversation.save();
-        res.status(201).send(savedConversation);
+        // Check if a conversation with the same id already exists
+        const existingConversation = await Conversation.findOne({ id: newConversation.id });
+        if (existingConversation) {
+            // If a conversation already exists, return it instead of creating a new one
+            res.status(200).send(existingConversation);
+        } else {
+            // If no conversation exists, create a new one
+            const savedConversation = await newConversation.save();
+            res.status(201).send(savedConversation);
+        }
     } catch (err) {
         next(err)
-    }
+    } 
 }
 
 export const updateConversation = async (req, res, next) => {

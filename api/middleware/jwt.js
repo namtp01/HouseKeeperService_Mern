@@ -12,3 +12,10 @@ export const verifyToken = (req,res,next) => {
         next()
     })
 }
+
+export const isAdmin = (req, res, next) => {
+    if (!req.isAdmin) {
+        return next(createError(403, "Only admins can perform this action"))
+    }
+    next()
+}
