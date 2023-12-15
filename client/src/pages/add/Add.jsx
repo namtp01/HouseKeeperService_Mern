@@ -74,9 +74,13 @@ const Add = () =>
   };
 
   const options = [
-    { value: 'page-design', label: 'Page Design' },
-    { value: 'logo-design', label: 'Logo Design' },
-    { value: 'marketing-materials', label: 'Marketing Materials' },
+    { value: 'heavy-lifting', label: 'Heavy Lifting' },
+    { value: 'home-repairs', label: 'Home Repairs' },
+    { value: 'home-cleaning', label: 'Home Cleaning' },
+    { value: 'electrical-help', label: 'Electrical Help' },
+    { value: 'baby-proofing', label: 'Baby Proofing' },
+    { value: 'cleaning-air-conditioner', label: 'Cleaning Air Conditioner' },
+    { value: 'laundry', label: 'Laundry' },
     // Add more options here...
   ];
 
@@ -95,10 +99,14 @@ const Add = () =>
             />
             <label htmlFor="">Category</label>
             <select name="cat" id="cat" onChange={handleChange}>
-              <option value="design">Cooking</option>
-              <option value="web">Babysister</option>
-              <option value="animation">Animation</option>
-              <option value="music">Music</option>
+              <option value="heavy-lifting">Heavy Lifting</option>
+              <option value="home-repairs">Home Repairs</option>
+              <option value="home-cleaning">Home Cleaning</option>
+              <option value="electrical-help">Electrical Help</option>
+              <option value="baby-proofing">Baby Proofing</option>
+              <option value="cleaning-air-conditioner">Cleaning Air Conditioner</option>
+              <option value="laundry">Laundry</option>
+              <option value="dog-walking">Dog Walking</option>
             </select>
             <div className="images">
               <div className="imagesInputs">

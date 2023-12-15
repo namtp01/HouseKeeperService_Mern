@@ -58,12 +58,12 @@ function Gigs() {
             <span>Budget:</span>
             <span>From <input ref={minRef} type="number" placeholder="min" /></span>
             <span> To <input ref={maxRef} type="number" placeholder="max" /></span>
-            <span> Location: </span>
+            {/* <span> Location: </span>
             <select id="city-select" value={country} onChange={handleCountryChange}>
               <option value="Ho Chi Minh">Ho Chi Minh</option>
               <option value="Ha Noi">Ha Noi</option>
               <option value="Da Nang">Da Nang</option>
-            </select>
+            </select> */}
             <button onClick={apply}>Apply</button>
           </div>
           <div className="right">

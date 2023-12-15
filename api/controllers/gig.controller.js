@@ -37,15 +37,12 @@ export const getGigs = async (req, res, next) =>
     // const user = await User.findById("userId");
     // const userCountry = user.country 
     const q = req.query
-    const user = await User.findOne({ _id: q.userId});
-    const userCountry = user ? user.country : null;
-    console.log(q.userId)
+
     const filters = {
         ...(q.userId && { userId: q.userId }),
         ...(q.cat && { cat: { $regex: q.cat, $options: "i"}  }),
         ...((q.min || q.max) && { price: { ...(q.min && { $gte: q.min }), ...(q.max && { $lte: q.max }) } }),
         ...(q.search && { title: { $regex: q.search, $options: "i" } }),
-        ...(userCountry && { country: { $regex: userCountry, $options: "i" } }),
     }
     //...(q.userCountry && { country: { $regex: userCountry, $options: "i"}}),
     try {

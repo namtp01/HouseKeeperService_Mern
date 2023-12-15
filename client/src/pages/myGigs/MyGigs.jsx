@@ -13,7 +13,7 @@ function MyGigs() {
   const { isLoading, error, data } = useQuery({
     queryKey: ["myGigs"],
     queryFn: () =>
-      newRequest.get(`/gigs?userId=${currentUser.id}`).then((res) => {
+      newRequest.get(`/gigs?userId=${currentUser._id}`).then((res) => {
         return res.data;
       }),
   });
@@ -52,7 +52,7 @@ function MyGigs() {
               <th>Image</th>
               <th>Title</th>
               <th>Price</th>
-              <th>Sales</th>
+              {/* <th>Sales</th> */}
               <th>Action</th>
             </tr>
             {data.map((gig) => (
@@ -62,7 +62,7 @@ function MyGigs() {
                 </td>
                 <td>{gig.title}</td>
                 <td>{gig.price}</td>
-                <td>{gig.sales}</td>
+                {/* <td>{gig.sales}</td> */}
                 <td>
                   <img
                     className="delete"
