@@ -5,8 +5,9 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "npx nodemon server.js",
-    "build": "npm i"
+    "build": "npm i",
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
