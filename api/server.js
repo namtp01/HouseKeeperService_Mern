@@ -18,7 +18,7 @@ connectDatabase()
 const app = express()
 
 app.use(cors({ 
-    origin: ["http://127.0.0.1:5173", "http://localhost:3000", "http://localhost:5173", "https://master--meek-capybara-31ac97.netlify.app"], 
+    origin: ["http://127.0.0.1:5173", "http://localhost:3000", "http://localhost:5173", "https://housekeeperservice.netlify.app/"], 
     credentials: true, 
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
